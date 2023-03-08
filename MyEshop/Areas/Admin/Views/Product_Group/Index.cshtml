@@ -1,0 +1,51 @@
+﻿@model IEnumerable<DataLayer.Product_Group>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+<a class="btn btn-success">افزودن گروه جدید</a>
+</p>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GroupTitle)
+        </th>
+        <th>
+          زیرگروه
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.GroupTitle)
+        </td>
+        <td>
+            @if (item.Product_Group1.Any())
+                {
+                    
+                        <ul>
+                            @foreach (var subgroup in item.Product_Group1)
+                            {
+                                <li>@subgroup.GroupTitle</li>
+
+                            }
+
+                        </ul>
+                    
+                }
+        </td>
+        <td>
+            <a class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-plus"></i></a>
+            <a class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-edit"></i></a>
+            <a class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i></a>
+        </td>
+    </tr>
+}
+
+</table>

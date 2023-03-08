@@ -1,0 +1,11 @@
+﻿@using System.Configuration
+
+@model DataLayer.Users
+
+<div  style="direction: rtl; padding: 20px">
+    <h2>@Model.UserName عزیز!</h2>
+    <p> برای فعال کردن حساب کاربری خود روی
+    
+    <p><a href="@ConfigurationManager.AppSettings["MyDomain"]/Account/ActiveUser/@Model.ActiveCode"> لینک</a></p>
+    کلیک کنید.</p>
+</div>
